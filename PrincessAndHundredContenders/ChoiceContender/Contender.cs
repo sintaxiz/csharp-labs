@@ -2,5 +2,12 @@ namespace ChoiceContender;
 
 public class Contender
 {
-    int stats
+    public string Name { get; }
+    public int Rating { get; }
+
+    public Contender(string name, int rating)
+    {
+        Name = name;
+        Rating = rating;
+    }
 }
