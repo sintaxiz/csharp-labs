@@ -8,7 +8,7 @@ List<Contender> contenders = ContendersGenerator.GenerateFromInternet(100);
 Hall hall = new Hall(contenders);
 Princess princess = new Princess(hall);
 
-string file = "contenders.txt";
+string file = "../../../contenders.txt";
 List<string> contendersNames = new List<string>(contenders.Count);
 contendersNames.AddRange(contenders.Select(c => c.Name));
 
