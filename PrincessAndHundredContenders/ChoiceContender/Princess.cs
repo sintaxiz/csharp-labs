@@ -3,7 +3,7 @@ namespace ChoiceContender;
 public class Princess
 {
     private readonly Hall _hall;
-
+    
     public Princess(Hall hall)
     {
         _hall = hall;
@@ -11,24 +11,25 @@ public class Princess
 
     public int ChoseHusband()
     {
-        while (_hall.CurrentContender != 50)
+        var contendersCount = _hall.GetContendersCount();
+        while (_hall.CurrentContender != contendersCount / 2)
         {
             _hall.CallNextContender();
         }
 
-        while (_hall.CurrentContender != 100)
+        while (_hall.CurrentContender != contendersCount)
         {
-            int isBetterCount = 0;
-            for (int i = 0; i < _hall.CurrentContender; i++)
+            var isBetterCount = 0;
+            for (var i = 0; i < _hall.CurrentContender; i++)
             {
-                bool friendAnswer = _hall.AskFriend(i);
+                var friendAnswer = _hall.AskFriend(i);
                 if (friendAnswer)
                 {
                     ++isBetterCount;
                 }
             }
 
-            if (isBetterCount >= 50)
+            if (isBetterCount >= contendersCount / 2)
             {
                 return _hall.CurrentContender;
             }

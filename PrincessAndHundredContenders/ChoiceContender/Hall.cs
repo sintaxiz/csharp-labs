@@ -2,7 +2,7 @@ namespace ChoiceContender;
 
 public class Hall
 {
-    private List<Contender> contenders;
+    private readonly List<Contender> _contenders;
 
     public int CurrentContender { get; private set; }
     //list checkedContenders
@@ -10,8 +10,13 @@ public class Hall
 
     public Hall(List<Contender> contenders)
     {
-        this.contenders = contenders;
+        _contenders = contenders;
         CurrentContender = 0;
+    }
+
+    public int GetContendersCount()
+    {
+        return _contenders.Count;
     }
 
     public void CallNextContender()
@@ -21,6 +26,6 @@ public class Hall
 
     public bool AskFriend(int checkContender)
     {
-        return contenders[CurrentContender].Rating >= contenders[checkContender].Rating;
+        return _contenders[CurrentContender].Rating >= _contenders[checkContender].Rating;
     }
 }

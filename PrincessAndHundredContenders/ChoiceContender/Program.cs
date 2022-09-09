@@ -4,17 +4,30 @@ using ChoiceContender;
 
 const string divider = "-----";
 
-List<Contender> contenders = ContendersGenerator.GenerateFromInternet(100);
-Hall hall = new Hall(contenders);
-Princess princess = new Princess(hall);
+var contenders = ContendersGenerator.GenerateFromInternet(100);
+var hall = new Hall(contenders);
+var princess = new Princess(hall);
 
-string file = "../../../contenders.txt";
+var file = "../../../contenders.txt";
 
-int husbandIdx = princess.ChoseHusband();
+var husbandIdx = princess.ChoseHusband();
+var happyLevel = 0;
+if (husbandIdx == -1)
+{
+    happyLevel = 10;
+} else if (contenders[husbandIdx].Rating <= 50)
+{
+    happyLevel = 0;
+}
+else
+{
+    happyLevel = contenders[husbandIdx].Rating;
+}
+
 Console.WriteLine($"Chosen husband: {contenders[husbandIdx].Name}" +
                   $"/{contenders[husbandIdx].Rating}");
 
-using StreamWriter sw = File.CreateText(file);
-contenders.ForEach(contender=> sw.WriteLine(contender.Name + "/" + contender.Rating));
+using var sw = File.CreateText(file);
+contenders.ForEach(contender => sw.WriteLine(contender.Name + "/" + contender.Rating));
 sw.WriteLine(divider);
-sw.WriteLine(husbandIdx.ToString());
+sw.WriteLine(happyLevel.ToString());
