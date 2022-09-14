@@ -4,7 +4,11 @@ public class Princess : BackgroundService
 {
     private readonly ILogger<Princess> _logger;
 
-    public IServiceProvider Services { get; }
+    private const int ContenderCount = 100;
+    private Hall _hall;
+    private Friend _friend;
+
+    private IServiceProvider Services { get; }
 
     public Princess(ILogger<Princess> logger, IServiceProvider services)
     {
@@ -14,15 +18,49 @@ public class Princess : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
+        _logger.LogInformation("Princess running at: {time}", DateTimeOffset.Now);
+        using (var scope = Services.CreateScope())
         {
-            _logger.LogInformation("Princess running at: {time}", DateTimeOffset.Now);
-            using (var scope = Services.CreateScope())
-            {
-                var hall = scope.ServiceProvider.GetRequiredService<Hall>();
-                await hall.Test(stoppingToken);
-            }
-            await Task.Delay(1000, stoppingToken);
+            _hall = scope.ServiceProvider.GetRequiredService<Hall>();
+            _friend = scope.ServiceProvider.GetRequiredService<Friend>();
+            var contenderGenerator = scope.ServiceProvider.GetRequiredService<ContenderGenerator>();
+
+            _hall.InitContenders(contenderGenerator, ContenderCount);
+            _hall.InitFriend(_friend);
         }
+
+        var happyLevel = ChoseHusband();
+        Console.WriteLine($"Happy level = {happyLevel}");
+        Environment.Exit(0);
+    }
+
+    private int ChoseHusband()
+    {
+        while (_hall.CurrentContender != ContenderCount / 2)
+        {
+            _hall.CallNextContender();
+        }
+
+        while (_hall.CurrentContender != ContenderCount)
+        {
+            var isBetterCount = 0;
+            for (var i = 0; i < _hall.CurrentContender; i++)
+            {
+                var friendAnswer = _friend.AskWhoBetter(i);
+                if (friendAnswer)
+                {
+                    ++isBetterCount;
+                }
+            }
+
+            if (isBetterCount >= ContenderCount / 2)
+            {
+                return _hall.ChoseCurrentHusband();
+            }
+
+            _hall.CallNextContender();
+        }
+
+        return 10; // nobody
     }
 }

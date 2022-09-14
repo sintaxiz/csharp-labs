@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoiceContender", "ChoiceContender\ChoiceContender.csproj", "{3D40894E-0CFD-443D-8FF5-02141EDD7269}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIContainer", "DIContainer\DIContainer.csproj", "{B28FE759-C509-43EE-9792-B6F6C4C928EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,11 @@ Global
 		{3D40894E-0CFD-443D-8FF5-02141EDD7269}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D40894E-0CFD-443D-8FF5-02141EDD7269}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D40894E-0CFD-443D-8FF5-02141EDD7269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28FE759-C509-43EE-9792-B6F6C4C928EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28FE759-C509-43EE-9792-B6F6C4C928EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28FE759-C509-43EE-9792-B6F6C4C928EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28FE759-C509-43EE-9792-B6F6C4C928EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
