@@ -33,7 +33,7 @@ public class Princess : BackgroundService
         Console.WriteLine($"Happy level = {happyLevel}");
         Environment.Exit(0);
     }
-
+    
     private int ChoseHusband()
     {
         while (_hall.CurrentContender != ContenderCount / 2)

@@ -4,6 +4,11 @@ namespace ChoiceContender;
 
 public class ContendersGenerator
 {
+    private static List<Contender> shuffle(List<Contender> contenders)
+    {
+        var random = new Random();
+        return contenders.OrderBy(i => random.Next()).ToList();
+    }
     public static List<Contender> GenerateRandom(int quantity)
     {
         var contenders = new List<Contender>(quantity);
@@ -12,7 +17,7 @@ public class ContendersGenerator
             contenders.Add(new Contender("c" + (i + 1), i));
         }
 
-        return contenders;
+        return shuffle(contenders);
     }
 
     public static List<Contender> GenerateFromInternet(int quantity)
@@ -35,7 +40,6 @@ public class ContendersGenerator
             Console.WriteLine("Can not get names: " + resp.StatusCode);
         }
 
-        var random = new Random();
-        return contenders.OrderBy(i => random.Next()).ToList();
+        return shuffle(contenders);
     }
 }

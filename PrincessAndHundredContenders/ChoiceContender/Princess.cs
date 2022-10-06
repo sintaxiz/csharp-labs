@@ -1,17 +1,25 @@
+using ChoiceContender.exceptions;
+
 namespace ChoiceContender;
 
 public class Princess
 {
     private readonly Hall _hall;
-    
-    public Princess(Hall hall)
+    private readonly Friend _friend;
+    public Princess(Hall hall, Friend friend)
     {
         _hall = hall;
+        _friend = friend;
     }
 
     public int ChoseHusband()
     {
         var contendersCount = _hall.GetContendersCount();
+        if (_hall.CurrentContender != -1)
+        {
+            throw new NoContendersInHallException();
+        }
+
         while (_hall.CurrentContender != contendersCount / 2)
         {
             _hall.CallNextContender();
@@ -22,7 +30,7 @@ public class Princess
             var isBetterCount = 0;
             for (var i = 0; i < _hall.CurrentContender; i++)
             {
-                var friendAnswer = _hall.AskFriend(i);
+                var friendAnswer = _friend.AskWhoBetter(i);
                 if (friendAnswer)
                 {
                     ++isBetterCount;

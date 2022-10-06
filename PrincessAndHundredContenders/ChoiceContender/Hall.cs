@@ -1,3 +1,5 @@
+using ChoiceContender.exceptions;
+
 namespace ChoiceContender;
 
 public class Hall
@@ -11,7 +13,7 @@ public class Hall
     public Hall(List<Contender> contenders)
     {
         _contenders = contenders;
-        CurrentContender = 0;
+        CurrentContender = -1;
     }
 
     public int GetContendersCount()
@@ -22,10 +24,9 @@ public class Hall
     public void CallNextContender()
     {
         ++CurrentContender;
-    }
-
-    public bool AskFriend(int checkContender)
-    {
-        return _contenders[CurrentContender].Rating >= _contenders[checkContender].Rating;
+        if (CurrentContender >= _contenders.Count)
+        {
+            throw new NoContendersInHallException();
+        }
     }
 }

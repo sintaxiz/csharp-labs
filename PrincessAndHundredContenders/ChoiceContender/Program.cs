@@ -4,9 +4,10 @@ using ChoiceContender;
 
 const string divider = "-----";
 
-var contenders = ContendersGenerator.GenerateFromInternet(100);
+var contenders = ContendersGenerator.GenerateRandom(100);
 var hall = new Hall(contenders);
-var princess = new Princess(hall);
+var friend = new Friend(contenders, hall);
+var princess = new Princess(hall, friend);
 
 var file = "../../../contenders.txt";
 

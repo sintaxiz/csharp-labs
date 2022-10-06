@@ -10,4 +10,12 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="bin\Debug\net6.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="bin\Debug\net6.0\api-key.txt" />
+    </ItemGroup>
 </Project>

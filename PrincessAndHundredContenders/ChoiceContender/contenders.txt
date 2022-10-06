@@ -1,102 +1,102 @@
-Ander Blalock/73
-Aymen Dahlgren/87
-Jamar Loomis/96
-Brenlee Racine/33
-Nashla Struble/27
-Onna Bednar/25
-Zya Fore/40
-Evalynn Hirsch/90
-Evie Duarte/28
-Vaida Garnett/99
-Kendal Castor/60
-Raylynn Barger/15
-Celia Dahl/61
-Slater Gao/69
-Nicodemus Norvell/71
-Chany Brotherton/1
-Elton Mcginley/26
-Trey Wills/46
-Emilee Alston/65
-Keasia Aho/37
-Sora Hubbs/34
-Amaziah Eastwood/55
-Gloria Newell/12
-Demetrio Piercy/8
-Adora Ebersole/16
-Heavenly Olvera/38
-Aiden Conyers/78
-Elsie Leblanc/23
-Amina Cline/92
-Macayla Townley/70
-London Harvey/64
-Serenity Schmidt/72
-Aaric Wagers/97
-Laiyah Jasso/89
-Lester Ainsworth/56
-Kaylanie Deem/49
-Kailah Chrisman/45
-Aniylah Koester/24
-Chesney Ries/95
-Juliana Swanson/67
-Tahlia Beauchamp/59
-Neev Gerdes/30
-Delyla Mullaney/32
-Jazmine Stuart/31
-Baylie Kuehn/66
-Sky Stratton/13
-Siana Shiver/41
-Sinai Turnbull/94
-Rickie Gress/35
-Bentlee Houser/76
-Nomar Works/81
-Daisy Mcgee/9
-Henlee Dejong/86
-Emarie Gaddy/3
-Rio Arvizu/85
-Geovany Faris/48
-Damen Owings/2
-Aziah Muth/63
-Madilynn Hays/19
-Monroe Woo/91
-Rawan Murchison/88
-Cienna Ralph/36
-Surya Bagby/21
-Vanesa Settles/82
-Jayden Walker/6
-Aisha Andersen/58
-Alexah Lark/39
-Kilee Zabel/84
-Guinevere Handy/4
-Soleil Yoo/43
-Crimson Shirk/77
-Cartier Ehlers/80
-Aryam Fortuna/11
-Baker Carrion/10
-Laniyah Barbour/83
-Carys Soliz/68
-Kaliya Keister/14
-Justine Taggart/18
-Ofelia Gaynor/0
-Rayleigh Lorenzo/5
-Paige Jennings/74
-Canon Heinrich/75
-Kingsten Wieland/42
-Kaylinn Sharon/50
-Sir Darrow/47
-Peri Rusch/57
-Daijah Merryman/22
-Zaeden Ozuna/79
-Louie Nagy/17
-Mylee Sammons/20
-Brystol Clausen/62
-Kayla Walsh/53
-Ekaterina Parmer/7
-Izaya Lobato/51
-Pedro Gentry/98
-Kallee Reep/52
-Arshiya Laliberte/54
-Kaleesi Mcmurry/93
-Mackayla Mceachern/44
-Arely Ferreira/29
+c54/53
+c81/80
+c41/40
+c14/13
+c82/81
+c85/84
+c8/7
+c33/32
+c3/2
+c56/55
+c32/31
+c95/94
+c26/25
+c11/10
+c84/83
+c51/50
+c87/86
+c66/65
+c48/47
+c98/97
+c93/92
+c31/30
+c78/77
+c74/73
+c45/44
+c96/95
+c97/96
+c68/67
+c40/39
+c27/26
+c2/1
+c39/38
+c69/68
+c43/42
+c88/87
+c1/0
+c72/71
+c21/20
+c23/22
+c61/60
+c49/48
+c52/51
+c25/24
+c79/78
+c7/6
+c30/29
+c13/12
+c100/99
+c60/59
+c4/3
+c36/35
+c24/23
+c46/45
+c38/37
+c10/9
+c94/93
+c9/8
+c42/41
+c67/66
+c29/28
+c53/52
+c58/57
+c70/69
+c50/49
+c20/19
+c28/27
+c65/64
+c17/16
+c90/89
+c75/74
+c99/98
+c12/11
+c91/90
+c89/88
+c83/82
+c34/33
+c5/4
+c86/85
+c80/79
+c55/54
+c19/18
+c47/46
+c92/91
+c15/14
+c77/76
+c37/36
+c63/62
+c57/56
+c18/17
+c44/43
+c6/5
+c76/75
+c59/58
+c22/21
+c16/15
+c64/63
+c35/34
+c71/70
+c62/61
+c73/72
 -----
-91
+64
