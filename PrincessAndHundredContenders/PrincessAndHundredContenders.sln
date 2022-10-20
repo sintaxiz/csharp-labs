@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIContainer", "DIContainer\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoiceContender.Tests", "ChoiceContender.Tests\ChoiceContender.Tests.csproj", "{0B08B7FF-863F-41EC-AF83-B1C9F67A35F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoiceContenderDatabase", "ChoiceContenderDatabase\ChoiceContenderDatabase.csproj", "{759C7495-D868-4704-9EF0-C33CED499F1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{0B08B7FF-863F-41EC-AF83-B1C9F67A35F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B08B7FF-863F-41EC-AF83-B1C9F67A35F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B08B7FF-863F-41EC-AF83-B1C9F67A35F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759C7495-D868-4704-9EF0-C33CED499F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759C7495-D868-4704-9EF0-C33CED499F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759C7495-D868-4704-9EF0-C33CED499F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759C7495-D868-4704-9EF0-C33CED499F1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
