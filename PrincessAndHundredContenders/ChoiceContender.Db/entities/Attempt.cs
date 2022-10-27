@@ -7,7 +7,7 @@ namespace ChoiceContender.Db.entities;
 public class Attempt : BaseEntity
 {
     [StringLength(64)]
-    public String Name { get; set; }
+    public string Name { get; set; }
     
     public int Count { get; set; }
 

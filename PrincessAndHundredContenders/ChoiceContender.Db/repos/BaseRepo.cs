@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChoiceContender.Db.repos;
 
-public class BaseRepo<T> : IDisposable, IRepo<T>  where T:BaseEntity, new()
+public class BaseRepo<T> : IDisposable, IRepo<T> where T : BaseEntity, new()
 {
     private readonly DbSet<T> _table;
     private readonly HallContext _db;
-    protected HallContext Context => _db;
+    protected HallContext context => _db;
 
     public BaseRepo() : this(new HallContext())
     {
@@ -23,19 +23,20 @@ public class BaseRepo<T> : IDisposable, IRepo<T>  where T:BaseEntity, new()
 
     public void Dispose()
     {
-        _db?.Dispose();
+        _db.Dispose();
     }
 
     public int Add(T entity)
     {
         _table.Add(entity);
-        return 0;
+        return _db.SaveChanges();
+        ;
     }
 
     public int Add(IList<T> entities)
     {
         _table.AddRange(entities);
-        return 0;
+        return _db.SaveChanges();
     }
 
     public int Update(T entity)
@@ -49,7 +50,7 @@ public class BaseRepo<T> : IDisposable, IRepo<T>  where T:BaseEntity, new()
         _table.UpdateRange(entities);
         return 0;
     }
-    
+
 
     public int Delete(T entity)
     {

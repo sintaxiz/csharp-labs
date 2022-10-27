@@ -4,7 +4,7 @@ using ChoiceContender.Db.entities;
 namespace ChoiceContender.Db.db;
 public class HallContext : DbContext
 {
-    internal HallContext() 
+    internal HallContext()
     {
         Database.EnsureCreated();
     }
