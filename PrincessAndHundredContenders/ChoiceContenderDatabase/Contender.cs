@@ -1,6 +1,6 @@
-namespace ChoiceContender;
+namespace ChoiceContenderDatabase;
 
-public class Contender
+public class Contender 
 {
     public string Name { get; }
     public int Rating { get; }

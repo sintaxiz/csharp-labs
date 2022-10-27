@@ -1,4 +1,4 @@
-namespace ChoiceContender.exceptions;
+namespace ChoiceContenderDatabase;
 
 public class UnfamiliarContenderException : Exception
 {

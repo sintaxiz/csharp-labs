@@ -1,6 +1,7 @@
 using System.Text.Json;
+using ChoiceContender.Db.entities;
 
-namespace ChoiceContenderDatabase;
+namespace ChoiceContender.Db.model;
 
 public class ContendersGenerator
 {
@@ -14,7 +15,7 @@ public class ContendersGenerator
         var contenders = new List<Contender>(quantity);
         for (var i = 0; i < quantity; i++)
         {
-            contenders.Add(new Contender("c" + (i + 1), i));
+            contenders.Add(new Contender{Name = "c" + (i + 1), Rating = i});
         }
 
         return shuffle(contenders);
@@ -33,7 +34,7 @@ public class ContendersGenerator
         {
             var names = resp.Content.ReadAsStringAsync().Result;
             var namesArray = JsonSerializer.Deserialize<List<string>>(names);
-            namesArray.ForEach(n => contenders.Add(new Contender(n, contenders.Count)));
+            namesArray.ForEach(n => contenders.Add(new Contender{Name = n, Rating = contenders.Count}));
         }
         else
         {

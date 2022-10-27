@@ -1,6 +1,4 @@
-using ChoiceContender.exceptions;
-
-namespace ChoiceContender;
+namespace ChoiceContenderDatabase;
 
 public class Princess
 {

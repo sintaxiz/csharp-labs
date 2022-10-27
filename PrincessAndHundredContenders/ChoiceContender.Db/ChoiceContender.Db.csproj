@@ -8,11 +8,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="EntityFramework" Version="6.4.4" />
-        <PackageReference Include="Npgsql" Version="6.0.7" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="bin\Debug\net6.0" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0-rc.2" />
     </ItemGroup>
 
 </Project>
