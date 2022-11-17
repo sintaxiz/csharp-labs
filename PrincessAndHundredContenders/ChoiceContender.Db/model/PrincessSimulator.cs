@@ -10,14 +10,17 @@ public static class PrincessSimulator
 
     public static void SimulateBehavior(string attemptName)
     { 
-        var repo = new BaseRepo<Attempt>();
-        var attempts = repo.GetSome(attempt => attempt.Name == attemptName);
-        Simulate(attempts[0]);
+        var attemptsRepo = new AttemptsRepo(new HallContext());
+        var contendersRepo = new ContendersRepo(new HallContext());
+        var attempts = attemptsRepo.GetSome(attempt => attempt.Name == attemptName);
+        var attempt = attempts[0];
+        attempt.Contenders = contendersRepo.GetSome(c => c.Attempt.Id == attempt.Id);
+        Simulate(attempt);
     }
 
     public static void SimulateAll()
     {
-        var repo = new BaseRepo<Attempt>();
+        var repo = new AttemptsRepo(new HallContext());
         var attempts = repo.GetAll();
         attempts.ForEach(Simulate);
     }
@@ -29,6 +32,7 @@ public static class PrincessSimulator
         Console.WriteLine("Contenders count: " + attempt.Contenders.Count);
         attempt.Contenders.ForEach(c => Console.WriteLine(c.Name + ":" + c.Rating));
         var contenders = attempt.Contenders;
+        contenders.Sort((c1, c2) => c1.OrderIdx - c2.OrderIdx);
         var hall = new Hall(contenders);
         var friend = new Friend(contenders, hall);
         var princess = new Princess(hall, friend);

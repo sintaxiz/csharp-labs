@@ -5,7 +5,7 @@ namespace ChoiceContender.Db.model;
 
 public class Hall
 {
-    private readonly List<Contender> _contenders;
+    public List<Contender> Contenders { get; }
 
     public int CurrentContender { get; private set; }
     //list checkedContenders
@@ -13,19 +13,19 @@ public class Hall
 
     public Hall(List<Contender> contenders)
     {
-        _contenders = contenders;
+        Contenders = contenders;
         CurrentContender = -1;
     }
 
     public int GetContendersCount()
     {
-        return _contenders.Count;
+        return Contenders.Count;
     }
 
     public void CallNextContender()
     {
         ++CurrentContender;
-        if (CurrentContender >= _contenders.Count)
+        if (CurrentContender >= Contenders.Count)
         {
             throw new NoContendersInHallException();
         }
