@@ -2,12 +2,12 @@ using ChoiceContender.exceptions;
 
 namespace ChoiceContender;
 
-public class Friend
+public class Friend : IFreind
 {
     private List<Contender> _contenders;
-    private Hall _hall;
+    private IHall _hall;
     
-    public Friend(List<Contender> contenders, Hall hall)
+    public Friend(List<Contender> contenders, IHall hall)
     {
         _contenders = contenders;
         _hall = hall;

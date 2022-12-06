@@ -2,11 +2,11 @@ using ChoiceContender.exceptions;
 
 namespace ChoiceContender;
 
-public class Hall
+public class Hall : IHall
 {
     private readonly List<Contender> _contenders;
 
-    public int CurrentContender { get; private set; }
+    public int CurrentContender { get; set; }
     //list checkedContenders
     //Hall(c1, c2)
 

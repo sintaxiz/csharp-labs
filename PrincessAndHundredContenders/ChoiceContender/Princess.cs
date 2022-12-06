@@ -2,11 +2,11 @@ using ChoiceContender.exceptions;
 
 namespace ChoiceContender;
 
-public class Princess
+public class Princess : IPrincess
 {
-    private readonly Hall _hall;
-    private readonly Friend _friend;
-    public Princess(Hall hall, Friend friend)
+    private readonly IHall _hall;
+    private readonly IFreind _friend;
+    public Princess(IHall hall, IFreind friend)
     {
         _hall = hall;
         _friend = friend;

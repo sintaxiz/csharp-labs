@@ -70,6 +70,7 @@ public class Program
                 foreach (var attempt in attemptsNames)
                 {
                     PrincessSimulator.SimulateBehavior(attempt);
+                    
                 }
 
                 break;
@@ -77,7 +78,7 @@ public class Program
             case ProgramMode.GeneratingAttempts:
                 foreach (var attempt in attemptsNames)
                 {
-                    AttemptGenerator.GenerateAttempt(attempt);
+                    AttemptGenerator.GenerateAttempt(attempt, new HallContext());
                 }
 
                 break;

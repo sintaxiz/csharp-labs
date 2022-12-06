@@ -5,7 +5,7 @@ namespace ChoiceContender.Db.entities;
 [Table("contender")]
 public class Contender : BaseEntity
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int Rating { get; set; }
     
     public int OrderIdx { get; set; }

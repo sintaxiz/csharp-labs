@@ -14,14 +14,16 @@ public static class AttemptGenerator
     private static Attempt _attempt;
     private static HallContext _context;
 
-    public static void GenerateAttempt(string name)
+    
+    
+    public static Attempt GenerateAttempt(string name, HallContext context)
     {
         Console.WriteLine("ATTEMPT GENERATOR v0.1");
 
         _attempt = new Attempt()
             { Name = name, Count = 100 };
         _attempt.Contenders = new List<Contender>();
-        _context = new HallContext();
+        _context = context;
         _attemptRepo = new AttemptsRepo(_context);
         _contendersRepo = new ContendersRepo(_context);
 
@@ -44,6 +46,7 @@ public static class AttemptGenerator
             saveContender(_hall.CurrentContender);
         }
 
+        var chosenIdx = -1;
         while (_hall.CurrentContender != contendersCount - 1)
         {
             var isBetterCount = 0;
@@ -55,18 +58,35 @@ public static class AttemptGenerator
                     ++isBetterCount;
                 }
             }
-
             if (isBetterCount >= contendersCount / 2)
             {
+                chosenIdx = _hall.CurrentContender;
+                saveContender(chosenIdx);
                 break;
             }
 
             _hall.CallNextContender();
             saveContender(_hall.CurrentContender);
         }
+        var happyLevel = 0;
+        if (chosenIdx == -1)
+        {
+            happyLevel = 10;
+        }
+        else if (_contenders[chosenIdx].Rating <= 50)
+        {
+            happyLevel = 0;
+        }
+        else
+        {
+            happyLevel = _contenders[chosenIdx].Rating;
+        }
 
+        _attempt.HappyLevel = happyLevel;
         _attemptRepo.Add(_attempt);
         _context.SaveChanges();
+        Console.WriteLine($"Name = {name}, Happy Level = {happyLevel}");
+        return _attempt;
     }
 
     private static void saveContender(int idx)

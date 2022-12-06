@@ -34,7 +34,7 @@ public class AttemptsRepo : IRepo<Attempt>
     
     public Attempt? GetOne(int? id) => _context.Attempts.Find(id);
 
-    public List<Attempt?> GetSome(Expression<Func<Attempt, bool>> where) => _context.Attempts.Where(where).ToList();
+    public List<Attempt?> GetSome(Expression<Func<Attempt, bool>> where) => _context.Attempts.Where(where).Include(x => x.Contenders).ToList();
 
     public List<Attempt?> GetAll() => _context.Attempts.ToList();
 

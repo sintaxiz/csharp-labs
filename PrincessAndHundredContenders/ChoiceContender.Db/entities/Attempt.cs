@@ -10,6 +10,8 @@ public class Attempt : BaseEntity
     public string Name { get; set; }
     
     public int Count { get; set; }
+    
+    public int HappyLevel { get; set; }
 
     //[Timestamp] public byte[] Timestamp { get; set; }
 
