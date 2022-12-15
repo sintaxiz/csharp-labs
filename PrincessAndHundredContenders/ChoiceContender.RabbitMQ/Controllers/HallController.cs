@@ -1,8 +1,9 @@
-using ChoiceContender.RabbitMQ.SharedClassLibrary;
-using ChoiceContender.Web.Dto;
-using ChoiceContender.Web.Model;
+using ChoiceContender.RabbitMQ.DataContracts;
+using ChoiceContender.RabbitMQ.Dto;
+using ChoiceContender.RabbitMQ.Model;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using Contender = ChoiceContender.RabbitMQ.Dto.Contender;
 
 namespace ChoiceContender.RabbitMQ.Controllers;
 
@@ -12,14 +13,14 @@ public class HallController : ControllerBase
 {
     private readonly ILogger<HallController> _logger;
 
-    private readonly IPublishEndpoint _publishEndpoint;
-    
+    private readonly IRequestClient<NextContenderRequest> _client;
+
     private HallModel? _hallModel;
     
-    public HallController(ILogger<HallController> logger, IPublishEndpoint publishEndpoint)
+    public HallController(ILogger<HallController> logger, IPublishEndpoint publishEndpoint, IRequestClient<NextContenderRequest> client)
     {
         _logger = logger;
-        _publishEndpoint = publishEndpoint;
+        _client = client;
         _hallModel = HallModel.getInstance();
     }
 
@@ -31,28 +32,22 @@ public class HallController : ControllerBase
     }
 
     [HttpPost( "hall/{attemptForNext}/next")]
-    public Contender NextContender([FromRoute] string attemptForNext, [FromQuery] int session)
+    public async Task<Contender> NextContender([FromRoute] string attemptForNext, [FromQuery] int session)
     {
-        var nextContenderName = _hallModel.CallNextContenderForAttempt(attemptForNext);
-        return new Contender(nextContenderName);
+        var nextContenderMessage = 
+            await _client.GetResponse<NextContender>(new { AttemptName = attemptForNext });
+        return new Contender(nextContenderMessage.Message.Name);
     }
 
     [HttpGet("hall/{attemptForSelect}/select")]
-    public async Task<IActionResult> SelectContender([FromRoute] string attemptForSelect, [FromQuery] int session)
+    public ContenderRank SelectContender([FromRoute] string attemptForSelect, [FromQuery] int session)
     {
         var rank = _hallModel.SelectContenderForAttempt(attemptForSelect);
         if (rank == -1)
         {
             throw new BadHttpRequestException("attempt not found");
         }
-        await _publishEndpoint.Publish<ChosenContender>(
-            new
-            {
-                Id = 1,
-                rank
-            });
-        
-        return Ok();
+        return new ContenderRank(rank);
     }
 
     
