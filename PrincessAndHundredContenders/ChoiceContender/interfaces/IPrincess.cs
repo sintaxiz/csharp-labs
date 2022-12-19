@@ -1,6 +1,6 @@
 namespace ChoiceContender;
 
-public in IPrincess
+public interface IPrincess
 {
     
 }

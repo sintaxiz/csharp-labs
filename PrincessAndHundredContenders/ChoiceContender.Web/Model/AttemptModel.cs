@@ -32,7 +32,6 @@ public class AttemptModel
 
     public int ChooseCurrentContender()
     {
-        _currentContender = _attempt.Contenders.Count;
         return _attempt.Contenders[_currentContender].Rating;
     }
 
