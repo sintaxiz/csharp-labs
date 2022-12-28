@@ -21,12 +21,13 @@ public class Hall : IHall
         return _contenders.Count;
     }
 
-    public void CallNextContender()
+    public Task CallNextContender()
     {
         ++CurrentContender;
         if (CurrentContender >= _contenders.Count)
         {
             throw new NoContendersInHallException();
         }
+        return Task.CompletedTask;
     }
 }

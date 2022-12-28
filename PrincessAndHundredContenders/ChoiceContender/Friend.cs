@@ -13,7 +13,7 @@ public class Friend : IFreind
         _hall = hall;
     }
 
-    public bool AskWhoBetter(int checkContender)
+    public async Task<bool> AskWhoBetter(int checkContender)
     {
         if (checkContender > _hall.CurrentContender)
         {

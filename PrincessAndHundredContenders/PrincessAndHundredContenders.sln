@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoiceContender.RabbitMQ", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoiceContender.WebPrincess", "ChoiceContender.WebPrincess\ChoiceContender.WebPrincess.csproj", "{722CAD8A-C1BF-41BD-B9DF-7CBF17E6D417}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Study", "Study\Study.csproj", "{EF9BCF1B-FA40-48BF-A1EF-431326EADE48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{722CAD8A-C1BF-41BD-B9DF-7CBF17E6D417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{722CAD8A-C1BF-41BD-B9DF-7CBF17E6D417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{722CAD8A-C1BF-41BD-B9DF-7CBF17E6D417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9BCF1B-FA40-48BF-A1EF-431326EADE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9BCF1B-FA40-48BF-A1EF-431326EADE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9BCF1B-FA40-48BF-A1EF-431326EADE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9BCF1B-FA40-48BF-A1EF-431326EADE48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

@@ -11,7 +11,7 @@ var princess = new Princess(hall, friend);
 
 var file = "../../../contenders.txt";
 
-var husbandIdx = princess.ChoseHusband();
+var husbandIdx = await princess.ChoseHusband();
 var happyLevel = 0;
 if (husbandIdx == -1)
 {

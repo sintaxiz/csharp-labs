@@ -2,5 +2,5 @@ namespace ChoiceContender;
 
 public interface IFreind
 {
-    public bool AskWhoBetter(int i);
+    public Task<bool> AskWhoBetter(int i);
 }

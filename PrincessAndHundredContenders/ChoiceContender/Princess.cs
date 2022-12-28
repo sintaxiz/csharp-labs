@@ -12,7 +12,7 @@ public class Princess : IPrincess
         _friend = friend;
     }
 
-    public int ChoseHusband()
+    public async Task<int> ChoseHusband()
     {
         var contendersCount = _hall.GetContendersCount();
         if (_hall.CurrentContender != -1)
@@ -22,7 +22,7 @@ public class Princess : IPrincess
 
         while (_hall.CurrentContender != contendersCount / 2)
         {
-            _hall.CallNextContender();
+            await _hall.CallNextContender();
         }
 
         while (_hall.CurrentContender != contendersCount)
@@ -30,7 +30,7 @@ public class Princess : IPrincess
             var isBetterCount = 0;
             for (var i = 0; i < _hall.CurrentContender; i++)
             {
-                var friendAnswer = _friend.AskWhoBetter(i);
+                var friendAnswer = await _friend.AskWhoBetter(i);
                 if (friendAnswer)
                 {
                     ++isBetterCount;
