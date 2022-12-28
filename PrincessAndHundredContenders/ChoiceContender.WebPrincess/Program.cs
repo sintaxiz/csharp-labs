@@ -25,11 +25,12 @@ class Program
                     
                     config.UsingRabbitMq((ctx, cfg) =>
                     {
-                        var jsonCfg = hostContext.Configuration.GetSection("RabbitMq");
-                        cfg.Host(jsonCfg["RabbitMqHost"], c =>
+                        var jsonCfg = hostContext.Configuration;
+                        Console.WriteLine(hostContext.Configuration.GetConnectionString("RabbitMqHost"));
+                        cfg.Host(jsonCfg.GetConnectionString("RabbitMqHost"), c =>
                         {
-                            c.Username(jsonCfg["UserName"]);
-                            c.Password(jsonCfg["Password"]);
+                            c.Username(jsonCfg.GetConnectionString("RabbitMqUserName"));
+                            c.Password(jsonCfg.GetConnectionString("RabbitMqPassword"));
                         });
                         cfg.ReceiveEndpoint("Nsu.PeakyBride.DataContracts:Contender", c =>
                         {

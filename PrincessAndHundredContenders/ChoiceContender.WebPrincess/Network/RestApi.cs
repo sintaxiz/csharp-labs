@@ -6,16 +6,18 @@ namespace ChoiceContender.WebPrincess.Network;
 public class RestApi
 {
     private HttpClient _client;
-    private string baseUrl = "https://nsupeakybrideapi20221215134314.azurewebsites.net/";
-    private object sessionId = "?sessionId=i1m-doe-omh-fbj";
+    private string _baseUrl;
+    private string _sessionQuery;
 
-    public RestApi()
+    public RestApi(string sessionId, string baseUrl)
     {
+        _sessionQuery = "?sessionId=" + sessionId;
+        _baseUrl = baseUrl;
     }
 
-    public async Task<string> СompareContenders(Comparation comparation, int id)
+    public async Task<string> СompareContenders(CompareDto comparation, int id)
     {
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create(baseUrl + "api/freind/"+ id +"/compare" + sessionId);
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create(_baseUrl + "api/freind/"+ id +"/compare" + _sessionQuery);
         httpWebRequest.ContentType = "application/json";
         httpWebRequest.Method = "POST";
         
@@ -35,7 +37,7 @@ public class RestApi
 
     public async Task ResetHall()
     {
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create(baseUrl + "api/hall/reset" + sessionId);
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create(_baseUrl + "api/hall/reset" + _sessionQuery);
         httpWebRequest.ContentType = "application/json";
         httpWebRequest.Method = "POST";
         
@@ -44,7 +46,7 @@ public class RestApi
 
     public async Task NextContender(int id)
     {
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create(baseUrl + "api/hall/"+ id +"/next" + sessionId);
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create(_baseUrl + "api/hall/"+ id +"/next" + _sessionQuery);
         httpWebRequest.Method = "POST";
 
         var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -52,7 +54,7 @@ public class RestApi
 
     public async Task SelectContender(int id)
     {
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create(baseUrl + "api/hall/"+ id +"/select" + sessionId);
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create(_baseUrl + "api/hall/"+ id +"/select" + _sessionQuery);
         httpWebRequest.Method = "POST";
 
         var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();

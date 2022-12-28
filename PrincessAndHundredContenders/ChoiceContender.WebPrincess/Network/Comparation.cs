@@ -4,11 +4,6 @@ public class Comparation
 {
     private List<string> _contenders;
     private RestApi _restApi;
-    
-    public Comparation(string name1, string name2)
-    {
-        _restApi = new RestApi();
-    }
 
     public void AddContender(string name)
     {
@@ -17,7 +12,7 @@ public class Comparation
 
     public async Task<bool> compare(int i, int id)
     {
-        var compareResult = await _restApi.СompareContenders(new Comparation(_contenders[i], _contenders.Last()), id);
+        var compareResult = await _restApi.СompareContenders(new CompareDto(_contenders[i], _contenders.Last()), id);
         if (compareResult == _contenders[i])
         {
             return false;
